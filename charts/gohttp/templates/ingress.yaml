@@ -26,9 +26,28 @@ spec:
 {{- else if .Values.jxRequirements.ingress.domain }}
     host: {{ .Values.service.name }}{{ .Values.jxRequirements.ingress.namespaceSubDomain }}{{ .Values.jxRequirements.ingress.domain }}
 {{- end }}
+
+  - host: www.leartech.tech
+    http:
+      paths:
+      - backend:
+          serviceName: gohttp
+          servicePort: 80
+
+  - host: leartech.tech
+    http:
+      paths:
+      - backend:
+          serviceName: gohttp
+          servicePort: 80
+
 {{- if .Values.jxRequirements.ingress.tls.enabled }}
   tls:
   - hosts:
+
+    - www.leartech.tech
+    - leartech.tech
+
     - {{ .Values.service.name }}{{ .Values.jxRequirements.ingress.namespaceSubDomain }}{{ .Values.jxRequirements.ingress.domain }}
 {{- if and (hasKey .Values.jxRequirements.ingress.tls "secretName") (.Values.jxRequirements.ingress.tls.secretName) }}
     secretName: "{{ .Values.jxRequirements.ingress.tls.secretName }}"
