@@ -26,7 +26,7 @@ spec:
 {{- else if .Values.jxRequirements.ingress.domain }}
     host: {{ .Values.service.name }}{{ .Values.jxRequirements.ingress.namespaceSubDomain }}{{ .Values.jxRequirements.ingress.domain }}
 {{- end }}
-{{- if eq "Production" .Values.mainDomain }}
+{{- if eq .Values.mainDomain }}
   - host: www.leartech.tech
     http:
       paths:
@@ -44,7 +44,7 @@ spec:
 {{- if .Values.jxRequirements.ingress.tls.enabled }}
   tls:
   - hosts:
-{{- if eq "Production" .Values.mainDomain }}
+{{- if eq .Values.mainDomain }}
     - www.leartech.tech
     - leartech.tech
 {{- end }}
