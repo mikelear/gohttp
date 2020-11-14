@@ -12,6 +12,13 @@ releases:
   - jx-values.yaml
   - imagePullSecrets.yaml
   - values.yaml.gotmpl
+
+- chart: jx3/acme
+  name: tls-jx-pr
+  namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
+  values:
+  - issuer:
+      cluster: true
   hooks:
   - events: ["presync"]
     showlogs: true
