@@ -12,6 +12,8 @@ releases:
   - jx-values.yaml
   - imagePullSecrets.yaml
   - values.yaml.gotmpl
+  - issuer:
+      cluster: true
   hooks:
   - events: ["presync"]
     showlogs: true
