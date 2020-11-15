@@ -7,7 +7,7 @@ import (
 )
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	title := "LearTech Preview Certs work !!!!"
+	title := "LearTech Preview Certs work or do they !!!!"
 
 	from := ""
 	if r.URL != nil {
