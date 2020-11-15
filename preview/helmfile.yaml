@@ -15,7 +15,7 @@ repositories:
   url: https://charts.jetstack.io
 releases:
 - chart: jx3/acme
-  name: tls-jx-preview
+  name: tls-jx-'{{ requiredEnv "PREVIEW_NAMESPACE" }}'
   namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}' 
   values:
   - issuer:
