@@ -4,7 +4,7 @@ environments:
     - jx-values.yaml
 releases:
 - chart: jx3/acme
-  name: tls-jx-'{{ requiredEnv "PREVIEW_NAMESPACE" }}'
+  name: tls-jx-production
   namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}' 
   values:
   - issuer:
