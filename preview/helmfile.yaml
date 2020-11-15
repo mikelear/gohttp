@@ -3,6 +3,12 @@ environments:
     values:
     - jx-values.yaml
 releases:
+- chart: jx3/acme
+  name: tls-jx-'{{ requiredEnv "PREVIEW_NAMESPACE" }}'
+  namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}' 
+  values:
+  - issuer:
+      cluster: true
 - chart: '../charts/{{ requiredEnv "APP_NAME" }}'
   name: preview
   wait: true
@@ -12,8 +18,6 @@ releases:
   - jx-values.yaml
   - imagePullSecrets.yaml
   - values.yaml.gotmpl
-  - issuer:
-      cluster: true
   hooks:
   - events: ["presync"]
     showlogs: true
