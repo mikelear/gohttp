@@ -6,7 +6,7 @@ import (
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
+func rootHandler(w http.ResponseWriter, r *http.Request) {
 	title := "LearTech Preview Certs work or do they !!!!"
 
 	from := ""
@@ -17,10 +17,25 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		log.Printf("title: %s\n", title)
 	}
 
-	fmt.Fprintf(w, "Hello from :  "+title+"\n")
+	fmt.Fprintf(w, "Hello from : %s\n", title)
+}
+
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	title := "Health Check"
+
+	from := ""
+	if r.URL != nil {
+		from = r.URL.String()
+	}
+	if from != "/favicon.ico" {
+		log.Printf("title: %s\n", title)
+	}
+
+	fmt.Fprintf(w, "Healthy!")
 }
 
 func main() {
-	http.HandleFunc("/", handler)
+	http.HandleFunc("/", rootHandler)
+	http.HandleFunc("/health", healthHandler)
 	http.ListenAndServe(":8080", nil)
 }
