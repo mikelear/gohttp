@@ -3,6 +3,8 @@ environments:
     values:
     - jx-values.yaml
 repositories:
+- name: jenkins-x
+  url: https://storage.googleapis.com/chartmuseum.jenkins-x.io
 releases:
 - chart: '../charts/{{ requiredEnv "APP_NAME" }}'
   name: preview
