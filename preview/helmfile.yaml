@@ -5,6 +5,8 @@ environments:
 repositories:
 - name: jenkins-x
   url: https://storage.googleapis.com/chartmuseum.jenkins-x.io
+- name: jetstack
+  url: https://charts.jetstack.io
 releases:
 - chart: '../charts/{{ requiredEnv "APP_NAME" }}'
   name: preview
