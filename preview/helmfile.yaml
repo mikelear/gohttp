@@ -25,6 +25,3 @@ releases:
     - "secret.jenkins-x.io/replica-source=true"
     - --to
     - '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
-- chart: ../charts/tlsSecret
-  values:
-  - ../charts/tlsSecret/values/tlssecret.yaml
