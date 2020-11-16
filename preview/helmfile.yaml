@@ -25,3 +25,9 @@ releases:
     - "secret.jenkins-x.io/replica-source=true"
     - --to
     - '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
+- chart: jx3/acme
+  name: previewjx
+  namespace: "PREVIEW_NAMESPACE"
+  values:
+  - issuer:
+      cluster: true
