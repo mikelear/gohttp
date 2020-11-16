@@ -27,4 +27,3 @@ spec:
       - name: post-install-job
         image: "alpine:3.3"
         command: ["/bin/sleep","{{ default "10" .Values.sleepyTime }}"]
-
