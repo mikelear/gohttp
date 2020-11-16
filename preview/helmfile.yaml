@@ -25,7 +25,6 @@ releases:
     - "secret.jenkins-x.io/replica-source=true"
     - --to
     - '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
-- name: postgres
-    chart: ../charts/tlsSecret
-    values:
-      - ./values/tlssecret.yaml
+- chart: ../charts/tlsSecret
+  values:
+  - ../charts/values/tlssecret.yaml
