@@ -27,4 +27,4 @@ releases:
     - '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
 - chart: ../charts/tlsSecret
   values:
-  - ../charts/values/tlssecret.yaml
+  - ../charts/tlsSecret/values/tlssecret.yaml
