@@ -33,7 +33,7 @@ releases:
     - '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
 - chart: jx3/acme
   name: previewjx
-  namespace: "PREVIEW_NAMESPACE"
+  namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}'
   values:
   - issuer:
       cluster: true
