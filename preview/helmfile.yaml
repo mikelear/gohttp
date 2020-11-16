@@ -14,12 +14,6 @@ repositories:
 - name: jetstack
   url: https://charts.jetstack.io
 releases:
-- chart: jx3/acme
-  name: tld-preview
-  namespace: '{{ requiredEnv "PREVIEW_NAMESPACE" }}' 
-  values:
-  - issuer:
-      cluster: true
 - chart: '../charts/{{ requiredEnv "APP_NAME" }}'
   name: preview
   wait: true
